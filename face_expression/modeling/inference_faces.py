@@ -4,6 +4,7 @@ import pygame
 import pygame.camera
 import tensorflow as tf
 from tensorflow.keras.models import model_from_json
+import cv2
 
 ## multi thread webcam
 ## https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
@@ -22,6 +23,9 @@ def load_model(json_model, weights):
     return loaded_model
 
 
+
+face_cascade = cv2.CascadeClassifier('../face_detection//haarcascade_frontalface_default.xml') 
+
 width = 320
 height = 240
 
@@ -38,8 +42,8 @@ window = pygame.display.set_mode((width, height), pygame.RESIZABLE)
 # start camera to capure
 cam.start()
 
-path_model = "architecture_model_face_expression.json"
-path_weights = "weights_model_face_expression.h5"
+path_model = "../saved_models/architecture_model_face_expression.json"
+path_weights = "../saved_models/weights_model_face_expression.h5"
 
 model = load_model(json_model=path_model,
                       weights=path_weights)
@@ -49,15 +53,59 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 print(model.summary())
 
-image = cam.get_image()
+"""
 
-print(type(image))
+img = cv2.imread("download.jpeg")
+gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
-print(image)
+print("faces detected",faces)
 
-image = surfarray.array3d(image)
-print(image.shape)
+for (x,y,w,h) in faces:
+    face_clip = img[y:y+h, x:x+w]
+    new_img = cv2.resize(face_clip, (width, height))
+    new_srf = pygame.surfarray.make_surface(new_img)
+    window.blit(new_srf, (0, 0))
+    pygame.display.update()
+"""
 
-print(type(image))
+#"""
+for i in range(1000):
+    print("frame", i)
+
+    image = cam.get_image()
+
+    np_image = surfarray.array3d(image)
+
+    gray = cv2.cvtColor(np_image, cv2.COLOR_BGR2GRAY)
+
+    faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+    
+    print(faces)
+
+    if len(faces) > 0:
+        print("\tface detected")
+
+        (x,y,w,h)  = faces[0]
+        face_clip = np_image[y:y+h, x:x+w]  #cropping the face in image
+        face_clip = cv2.resize(face_clip, (width, height))
+        
+        new_srf = pygame.surfarray.make_surface(face_clip)
+        window.blit(new_srf, (0, 0))
+
+        # refresh window
+        pygame.display.update()
+    else:
+        new_image = cv2.resize(np_image, (150, 150))
+        pred = model.predict(np.array([new_image]))
+        print("\t", pred)
+        new_srf = pygame.surfarray.make_surface(np_image)
+        window.blit(new_srf, (0, 0))
+
+        # refresh window
+        pygame.display.update()
+
+#"""
+
 # stop camera
 cam.stop()

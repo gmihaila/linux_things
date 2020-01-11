@@ -38,7 +38,7 @@ cam.start()
 
 
 
-for im_num in range(0, 2000):
+for im_num in range(0, 1000):
 
     print("Image : ", im_num)
 
@@ -64,7 +64,7 @@ for im_num in range(0, 2000):
 
     # Saving the captured image.
 
-    pygame.image.save(window, './pygame_images/image_' + str(im_num) + '.jpg')
+    pygame.image.save(window, '../pygame_images/image_' + str(im_num) + '.jpg')
 
 
 
