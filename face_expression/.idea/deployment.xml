@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="gm0234@talon3.hpc.unt.edu:22">
+    <serverData>
+      <paths name="gm0234@talon3.hpc.unt.edu:22">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/storage/scratch2/gm0234/face_expression" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath path="/storage/scratch2/gm0234/face_expression/faces_dataset/test" />
+            <excludedPath path="/storage/scratch2/gm0234/face_expression/faces_dataset/train" />
+            <excludedPath path="/storage/scratch2/gm0234/face_expression/faces_dataset/valid" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>
