@@ -1,5 +1,9 @@
-import keras
-from keras.models import model_from_json
+import pygame.surfarray as surfarray
+import numpy as np
+import pygame
+import pygame.camera
+import tensorflow as tf
+from tensorflow.keras.models import model_from_json
 
 ## multi thread webcam
 ## https://www.pyimagesearch.com/2015/12/21/increasing-webcam-fps-with-python-and-opencv/
@@ -18,8 +22,24 @@ def load_model(json_model, weights):
     return loaded_model
 
 
-path_model = "/storage/scratch2/gm0234/face_expression/modeling/architecture_model_face_expression.json"
-path_weights = "/storage/scratch2/gm0234/face_expression/modeling/weights_model_face_expression.h5"
+width = 320
+height = 240
+
+# camera to be use
+
+pygame.init()
+pygame.camera.init()
+
+cam = pygame.camera.Camera("/dev/video0", (width, height))
+
+# prep show window
+window = pygame.display.set_mode((width, height), pygame.RESIZABLE)
+
+# start camera to capure
+cam.start()
+
+path_model = "architecture_model_face_expression.json"
+path_weights = "weights_model_face_expression.h5"
 
 model = load_model(json_model=path_model,
                       weights=path_weights)
@@ -29,5 +49,15 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 print(model.summary())
 
+image = cam.get_image()
 
-# initialize the camera
+print(type(image))
+
+print(image)
+
+image = surfarray.array3d(image)
+print(image.shape)
+
+print(type(image))
+# stop camera
+cam.stop()
