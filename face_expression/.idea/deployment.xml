@@ -11,6 +11,7 @@
             <excludedPath path="/storage/scratch2/gm0234/face_expression/faces_dataset/test" />
             <excludedPath path="/storage/scratch2/gm0234/face_expression/faces_dataset/train" />
             <excludedPath path="/storage/scratch2/gm0234/face_expression/faces_dataset/valid" />
+            <excludedPath path="/storage/scratch2/gm0234/face_expression/faces_dataset" />
           </excludedPaths>
         </serverdata>
       </paths>
