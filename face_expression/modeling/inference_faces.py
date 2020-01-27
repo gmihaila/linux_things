@@ -74,7 +74,7 @@ for (x,y,w,h) in faces:
 """
 
 #"""
-for i in range(100):
+for i in range(1000):
 
    
     print("frame", i)
@@ -91,6 +91,18 @@ for i in range(100):
     # print("\t", pred)
     
     print("\t", label)
+    
+    
+    
+    cv2.putText(
+                np_image, #numpy array on which text is written
+                label, #text
+                (10,40), #position at which writing has to start
+                cv2.FONT_HERSHEY_SIMPLEX, #font family
+                1, #font size
+                (209, 80, 0, 255), #font color
+                3) 
+    
     
     new_srf = pygame.surfarray.make_surface(np_image)
     window.blit(new_srf, (0, 0))
