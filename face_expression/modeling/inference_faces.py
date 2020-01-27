@@ -22,8 +22,12 @@ def load_model(json_model, weights):
     print("Loaded model from disk")
     return loaded_model
 
+# classes
+CLASS_NAMES = ['anger', 'joy', 'disgust', 'sadness', 'contempt', 'surprise', 'neutral', 'fear']
 
+id_class = {0: 'anger', 1: 'joy', 2: 'disgust', 3: 'sadness', 4: 'contempt', 5: 'surprise', 6: 'neutral', 7: 'fear'}
 
+# face detection
 face_cascade = cv2.CascadeClassifier('../face_detection//haarcascade_frontalface_default.xml') 
 
 width = 320
@@ -42,8 +46,8 @@ window = pygame.display.set_mode((width, height), pygame.RESIZABLE)
 # start camera to capure
 cam.start()
 
-path_model = "../saved_models/architecture_model_face_expression.json"
-path_weights = "../saved_models/weights_model_face_expression.h5"
+path_model = "model_checkpoint/configuration_model.json"
+path_weights = "model_checkpoint/final_epoch_model_weights.hdf5"
 
 model = load_model(json_model=path_model,
                       weights=path_weights)
@@ -70,13 +74,32 @@ for (x,y,w,h) in faces:
 """
 
 #"""
-for i in range(1000):
+for i in range(100):
+
+   
     print("frame", i)
 
     image = cam.get_image()
 
     np_image = surfarray.array3d(image)
+    new_image = cv2.resize(np_image, (150, 150))
+    
+    pred = model.predict(np.array([new_image]))
+    
+    label = id_class[np.argmax(pred)]
 
+    # print("\t", pred)
+    
+    print("\t", label)
+    
+    new_srf = pygame.surfarray.make_surface(np_image)
+    window.blit(new_srf, (0, 0))
+
+    # refresh window
+    pygame.display.update()
+
+
+    '''
     gray = cv2.cvtColor(np_image, cv2.COLOR_BGR2GRAY)
 
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
@@ -104,6 +127,8 @@ for i in range(1000):
 
         # refresh window
         pygame.display.update()
+
+    '''
 
 #"""
 
