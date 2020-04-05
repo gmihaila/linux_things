@@ -1,11 +1,13 @@
-# Model Inference on Rapsberry Pi4
+# Rapsberry Pi4 Projects
 
-All model are trainned using desktop computers or HPC Clusters.
+## Face Expression Detection:
+ Train NN model to recognize face expressions: **'anger', 'joy', 'disgust', 'sadness', 'contempt', 'surprise', 'neutral', 'fear'**
+* All model are trainned using desktop computers or HPC Clusters.
 
-Models are deployed on Raspberry Pi4
+* Models are deployed on Raspberry Pi4
 
-Different Machine Learning projects that run on raspberry pi 4
+## Netwrosk Attached Storage (NAS)
+* Build my own network storage device.
 
-Face Expression Detection
-
-'anger', 'joy', 'disgust', 'sadness', 'contempt', 'surprise', 'neutral', 'fear'
+## Cloud Service
+* Not implemented yet
