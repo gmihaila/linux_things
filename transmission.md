@@ -6,47 +6,47 @@ Web: [https://transmissionbt.com](https://transmissionbt.com)
 
 ## Install and setup
 
-Make sure we're up to date:
+* Make sure we're up to date:
 
 ```
 sudo apt update
 sudo apt upgrade -y
 ```
 
-Install transmission:
+* Install transmission:
 
 ```
 sudo apt install transmission-daemon -y
 ```
 
 
-Stop transmission so we can do some configuration:
+* Stop transmission so we can do some configuration:
 
 ```
 sudo systemctl stop transmission-daemon
 ```
 
-Setup folder:
+* Setup folder:
 
 ```
 sudo mkdir -p /pi_server
 sudo mkdir -p /pi_server/in_progress
 ```
 
-Setup folder ownership
+* Setup folder ownership
 
 ```
 sudo chown -R pi:pi /pi_server
 sudo chown -R pi:pi /pi_server/in_progress
 ```
 
-Add settings:
+* Add settings:
 
 ```
 sudo vim /etc/transmission-daemon/settings.json
 ```
 
-  Add:
+  * Add:
 
   ```
   "incomplete-dir": "/pi_server/in_progress",
@@ -57,7 +57,7 @@ sudo vim /etc/transmission-daemon/settings.json
   "rpc-whitelist": "192.168.*.*",
   ```
 
-Change default user:
+* Change default user:
 
 ```
 sudo vim /etc/init.d/transmission-daemon
@@ -72,24 +72,26 @@ sudo vim /etc/init.d/transmission-daemon
   USER=pi
   ```
 
+* Edit service file:
+
 ```
 sudo vim /etc/systemd/system/multi-user.target.wants/transmission-daemon.service
 ```
 
-  Make sure:
+  * Make sure:
 
   ```
   user=pi
   ```
 
-Check status for transmission:
+* Check status for transmission:
 
 ```
 sudo systemctl daemon-reload
 ```
 
 
-Other configurations:
+* Other configurations:
 
 ```
 sudo chown -R pi:pi /etc/transmission-daemon
@@ -98,24 +100,24 @@ sudo ln -s /etc/transmission-daemon/settings.json /home/pi/.config/transmission-
 sudo chown -R pi:pi /home/pi/.config/transmission-daemon/
 ```
 
-Start transmission:
+* Start transmission:
 
 ```
 sudo systemctl start transmission-daemon
 ```
 
-Check status make sure everything is running smooth:
+* Check status make sure everything is running smooth:
 
 ```
 systemctl status transmission-daemon.service
 ```
 
-Go to: [http://192.168.0.11:9091](http://192.168.0.11:9091)
+* Go to: [http://192.168.0.11:9091](http://192.168.0.11:9091)
 
 
 ## Maintenence
 
-Unmount partition -need to stop all running process:
+* Unmount partition -need to stop all running process (stop transmission and samba):
 
 ```
 sudo systemctl stop transmission-daemon
@@ -126,7 +128,7 @@ sudo umount /pi_server
 
 ## Fix any disk errors
 
-Use in fstack to check and fix any file system errors. Make sure disk is unmounted:
+* Use in fstack to check and fix any file system errors. Make sure disk is unmounted:
 
 ```
 sudo fsck -y /dev/sda2
