@@ -1,4 +1,4 @@
-# Network Attached Storage (NAS)
+# Network Attached Storage (NAS) using Samba
 
 ## Build a NAS server using Raspberry PI 4:
 
@@ -60,12 +60,12 @@
 
 * Add user to communicate to NAS:
   ```bash
-  sudo adduser gm0234
+  sudo adduser pi
   ```
 
 * Create samba user. This will be the user used when connecting to NAS:
   ```bash
-  sudo smbpasswd -a gm0234
+  sudo smbpasswd -a pi
   ```
 
 * Restart Samba server:
@@ -80,7 +80,7 @@
   ```
   And enter the following at the end of the file:
   ```bash
-  /dev/sda2 /pi_server auto defaults, user 0 2
+  /dev/sda2 /pi_server ext4 defaults,user 0 0
   ```
 
 * Setup static IP in case PI or router restarts:
@@ -90,9 +90,9 @@
   And enter the following at the end of the file:
   ```bash
   #setting static ip address for raspberry pi 4
-  static ip_address=192.168.1.9/24
-  static routers=192.168.1.1
-  static domain_name_servers=192.168.1.1
+  static ip_address=192.168.0.11/24
+  static routers=192.168.0.1
+  static domain_name_servers=192.168.0.1
   ```
 
 * Reboot PI:
@@ -106,7 +106,7 @@
   And enter:
 
   ```bash
-  smb://192.168.1.9
+  smb://192.168.0.11
   ```
   
    Now enter samba user and finish setup.
@@ -117,7 +117,7 @@
 
 
 * Connect with iphone:
-  **App: Files > ... > Connect to Server > smb:/192.168.1.9 > Registered User**
+  **App: Files > ... > Connect to Server > smb:/192.168.0.11 > Registered User**
   Now enter samba user and finish setup.
 
 
