@@ -1,5 +1,9 @@
 # Transmission
 
+Transmission is a cross-platform BitTorrent client.
+
+Web: [https://transmissionbt.com](https://transmissionbt.com)
+
 ## Install and setup
 
 Make sure we're up to date:
