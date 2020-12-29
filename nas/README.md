@@ -7,7 +7,7 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
-## [Build a NAS server using Raspberry PI 4](https://github.com/gmihaila/raspberry_projects/blob/master/nas/samba.md)
+## [Build a NAS server using Samba](https://github.com/gmihaila/raspberry_projects/blob/master/nas/samba.md)
 
 ## [Install Transmission](https://github.com/gmihaila/raspberry_projects/blob/master/nas/transmission.md)
 
