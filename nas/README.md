@@ -11,6 +11,8 @@ sudo apt upgrade -y
 
 ## [Install Transmission](https://github.com/gmihaila/raspberry_projects/blob/master/nas/transmission.md)
 
+## [Install Plex](https://github.com/gmihaila/raspberry_projects/blob/master/nas/plex.md)
+
 ## Run maintenance
 
 * Unmount process - need to stop all running process:
