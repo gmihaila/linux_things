@@ -40,6 +40,11 @@ sudo apt-get update
 ```bash
 sudo apt install plexmediaserver
 ```
+## Access
+
+```bash
+192.168.1.100:32400/web/
+```
 
 Make sure to setup static IP.
 
