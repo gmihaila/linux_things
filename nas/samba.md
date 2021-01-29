@@ -49,7 +49,7 @@ Build a NAS server using Raspberry PI 4.
   And enter the following on the last line:
   ```bash
   [Raspberry PI 4 Nas Server]
-  comment = "pi4-nas"
+  comment = "pi_server"
   path = /pi_server
   read only = no
   writable = yes
