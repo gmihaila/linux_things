@@ -58,6 +58,23 @@ The second directory is where Plex will store all the metadata it retrieves for 
 
 As Plex is running a different user to the Raspberry Pi’s default “pi” user, you will need to make sure you have permissions set correctly on your drive.
 
+## Folder Structure
+
+*The scanners and metadata agents used by Plex will work best when your major types of content are separated from each other. We strongly recommend separating movie and television content into separate main directories. For instance, you might use something like this:*
+
+```
+/Media
+   /Movies
+      movie content
+   /Music
+      music content
+   /TV Shows
+      television content
+```
+
+More details [here](https://support.plex.tv/articles/200220717-local-media-assets-tv-shows/).
+
+
 ## Credits
 
 https://pimylifeup.com/raspberry-pi-plex-server/
