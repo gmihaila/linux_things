@@ -60,19 +60,13 @@ Create storage directory:
 
 ```
 sudo mkdir -p /Media
-sudo mkdir -p /Media/Movies
-sudo mkdir -p /Media/Music
-sudo mkdir -p /Media/TV\ Shows
-sudo mkdir -p /Media/in_progress
+
 ```
 
 And change ownsership
 
 ```
 sudo chown -R pi:pi /Media
-sudo chown -R pi:pi /Media/Movies
-sudo chown -R pi:pi /Media/TV\ Shows
-sudo chown -R pi:pi /Media/in_progress
 ```
 
 See mounting points:
@@ -85,6 +79,21 @@ Mount Drive:
 
 ```
 sudo mount /dev/sda2 /Media
+```
+
+Create folders:
+
+```
+sudo mkdir -p /Media/Movies
+sudo mkdir -p /Media/Music
+sudo mkdir -p /Media/TV\ Shows
+sudo mkdir -p /Media/in_progress
+```
+
+```
+sudo chown -R pi:pi /Media/Movies
+sudo chown -R pi:pi /Media/TV\ Shows
+sudo chown -R pi:pi /Media/in_progress
 ```
 
 Keep drive mounted (automount) even when PI restarts:
