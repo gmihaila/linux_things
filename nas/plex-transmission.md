@@ -7,6 +7,12 @@ sudo apt update
 sudo apt upgrade -y
 ```
 
+## Install Vim:
+
+```
+sudo apt-get install vim -y
+```
+
 ## Setup Static IP
 
 ```
