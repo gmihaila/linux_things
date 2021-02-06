@@ -17,9 +17,9 @@ And enter the following at the end of the file:
 
 ```
 #setting static ip address for raspberry pi 4
-static ip_address=192.168.0.11/24
-static routers=192.168.0.1
-static domain_name_servers=192.168.0.1
+static ip_address=192.168.50.11/24
+static routers=192.168.50.1
+static domain_name_servers=192.168.50.1
 ```
 
 Reboot PI:
@@ -179,7 +179,7 @@ Check status make sure everything is running smooth:
 systemctl status transmission-daemon.service
 ```
 
-Transmission available at `http://192.168.0.11:9091`.
+Transmission available at `http://192.168.50.11:9091`.
 
 Reboot PI:
 
@@ -226,7 +226,7 @@ Install the Plex Media server package to the Pi:
 sudo apt install plexmediaserver
 ```
 
-Plex available at `http://192.168.0.11:32400/web/`.
+Plex available at `http://192.168.50.11:32400/web/`.
 
 The scanners and metadata agents used by Plex will work best when your major types of content are separated from each other. We strongly recommend separating movie and television content into separate main directories. For instance, you might use something like this:
 
