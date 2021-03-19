@@ -108,6 +108,19 @@ And enter the following at the end of the file:
 /dev/sda2 /Media ext4 defaults,user 0 0
 ```
 
+*Alternative use `UUID=<uuid-of-your-drive>  <mount-point>  <file-system-type>  <mount-option>  <dump>  <pass>`.*
+*This might work better (make sure to use `sudo blkid` to find <uuid-of-your-drive> and test it out with `sudo mount -a`)*:
+
+```
+UUID=7690cbc8-a262-40ba-a860-c47d499304c7 /Media ext4 defaults,auto,users,rw,nofail 0 0
+```
+
+or
+
+```
+UUID=7690cbc8-a262-40ba-a860-c47d499304c7   /Media  ext4  defaults  0 2
+```
+
 Reboot PI:
 
 ```
