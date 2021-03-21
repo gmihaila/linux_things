@@ -3,8 +3,8 @@
 ## Install updates
 
 ```
-sudo apt update
-sudo apt upgrade -y
+sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade -y
+sudo apt autoremove -y
 ```
 
 ## Install Vim:
@@ -220,8 +220,8 @@ sudo reboot
 ## Install Plex
 
 ```
-sudo apt update
-sudo apt upgrade -y
+sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade -y
+sudo apt autoremove -y
 ```
 
 Add the official Plex package repository:
