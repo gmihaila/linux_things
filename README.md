@@ -23,7 +23,7 @@
 
 </br>
 
-## [Netwrosk Media Server)](https://github.com/gmihaila/raspberry_projects/tree/master/nas)
+## [Netwrosk Media Server](https://github.com/gmihaila/raspberry_projects/tree/master/nas)
 * Build my own network storage device with other programs to maintain a network media server.
 
 </br>
