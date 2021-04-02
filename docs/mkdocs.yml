@@ -1,0 +1,125 @@
+# This is the main configuration file that build the documentation.
+# I got most of this from: https://github.com/squidfunk/mkdocs-material
+# Project information.
+
+# Project information.
+site_name: My Linux Related Projects
+site_url: https://gmihaila.github.io/linux_things/
+site_author: George Mihaila
+site_description: >-
+  This is a repo I built for me in order to make my life easier around managing some linux personal projects.t.
+# Repository.
+repo_name: gmihaila/linux_things
+repo_url: https://github.com/gmihaila/linux_things
+edit_uri: tree/master/docs/src/markdown
+
+# Copyright.
+copyright: Copyright &copy; 2015 - 2021 <a href="https://github.com/gmihaila"  target="_blank" rel="noopener">George Mihaila</a>
+
+# Path of markdown files.
+docs_dir: markdown
+
+# Configuration
+theme:
+  name: material
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    - instant
+    - header.autohide
+    - search.highlight
+    - search.share
+    - search.suggest
+    # - navigation.top
+    - navigation.sections
+    # - navigation.expand
+    # - navigation.tabs
+    # - toc.integrate # table of contents is rendered as part of the navigation
+  palette:
+    scheme: slate
+    primary: black
+    accent: black
+  font:
+    text: Roboto
+    code: Roboto Mono
+  icon:
+    logo: octicons/cpu-24
+    repo: fontawesome/brands/github
+
+# Plugins
+plugins:
+  - search
+  - minify:
+      minify_html: true
+
+# Customization.
+# Add social links here!
+extra:
+  manifest: manifest.webmanifest
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/gmihaila
+    # - icon: fontawesome/brands/docker
+    #   link: https://hub.docker.com/your-link
+    # - icon: fontawesome/brands/twitter
+    #   link: https://twitter.com/your-link
+    # - icon: fontawesome/brands/linkedin
+    #   link: https://linkedin.com/in/your-link/
+
+# Extensions.
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree.
+# Add new pages here!
+nav:
+  - Home: index.md
+
+  - Raspberry:
+      - Media Home Server: pi_media_home_server.md
+
+# Google Analytics.
+google_analytics:
+  - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
+  - auto

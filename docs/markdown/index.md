@@ -1,8 +1,3 @@
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-
-[![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://gmihaila.github.io/linux_things/)
-
-
 # Linux Things
 
 This is a repo I built for me in order to make my life easier around managing some linux personal projects.
@@ -24,6 +19,5 @@ Maturing nicely.
 #### Face Expression Detection
 
 Nothing running so far. I might remove it in the future.
-
 
 
