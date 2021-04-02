@@ -274,4 +274,12 @@ Reboot PI:
 sudo reboot
 ```
 
+## Update Plex
+
+Download the `*.deb` file on the pi and install updates. For example if we have the `plexmediaserver_1.22.1.4275-48e10484b_armhf.deb`:
+
+```bash
+$ sudo dpkg -i plexmediaserver_1.22.1.4275-48e10484b_armhf.deb
+```
+
 Thanks!
