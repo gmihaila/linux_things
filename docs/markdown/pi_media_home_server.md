@@ -209,6 +209,14 @@ Reload transmission:
 sudo systemctl daemon-reload
 ```
 
+Change ownershitp of some files into our permissions scope:
+
+```bash
+sudo chown -R pi:pi /etc/transmission-daemon
+sudo chown -R pi:pi /etc/init.d/transmission-daemon
+sudo chown -R pi:pi /var/lib/transmission-daemon
+```
+
 Other configurations:
 
 ```bash
