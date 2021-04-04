@@ -1,17 +1,16 @@
-name: build-docs
+name: ci
 on:
   push:
     branches:
-      branches: [ master ]
+      - master
+      - main
 jobs:
-  build:
-
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
-      - run: pip install -r requirements.txt
-      - run: mkdocs gh-deploy --config-file docs/mkdocs.yml
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force
