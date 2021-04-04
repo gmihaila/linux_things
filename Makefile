@@ -21,11 +21,11 @@ clean-pyc: ## Remove Python file artifacts.
 
 .PHONY: docs
 docs: ## Rebuild docs automatically and display locally.
-	mkdocs serve  --config-file docs/mkdocs.yml
+	mkdocs serve --config-file docs/mkdocs.yml
 
 .PHONY: servedocs
 servedocs: ## Rebuild docs automatically and push to github.
-	mkdocs gh-deploy  --config-file docs/mkdocs.yml
+	mkdocs gh-deploy --config-file docs/mkdocs.yml
 
 .PHONY: help
 help: ## Display make help.
