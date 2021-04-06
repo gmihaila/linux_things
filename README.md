@@ -1,5 +1,6 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://gmihaila.github.io/linux_things/)
+[![Build documentation](https://github.com/gmihaila/linux_things/actions/workflows/build-docs.yml/badge.svg)](https://github.com/gmihaila/linux_things/actions/workflows/build-docs.yml)
 
 
 # Linux Things
