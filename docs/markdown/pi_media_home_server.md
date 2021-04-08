@@ -329,3 +329,34 @@ sudo dpkg -i plexmediaserver_1.22.1.4275-48e10484b_armhf.deb
 sudo fsck -f -y /dev/sda2
 ```
 
+## Add exFat support
+
+Inspired from [here](https://pimylifeup.com/raspberry-pi-exfat/).
+
+Exfat-fuse works as a module to FUSE (Filesystem in Userspace) software system that allows the Raspbian operating system to mount and interpret exFAT drives without requiring extra privileges.
+
+Exfat-utils provides all the utilities that you need to be able to deal with the exFAT format, including the ability to format drives on your Linux devices.
+
+```bash
+sudo apt-get install exfat-fuse
+sudo apt-get install exfat-utils
+```
+
+Mounting an exFAT Drive Manually from Terminal
+
+```bash
+sudo mount -t exfat /dev/sda2 /Media
+```
+
+Automatically mounted at boot read only (find UUID using `sudo blkid`):
+
+```bash
+UUID=CA1C-06BC /Media exfat defaults,auto,umask=000,users,r 0 0
+```
+
+
+Formatting a Drive as exFAT:
+
+```bash
+mkfs.exfat /dev/sda2
+```
