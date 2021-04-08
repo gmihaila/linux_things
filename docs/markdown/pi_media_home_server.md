@@ -1,5 +1,10 @@
 # Media Home Server
 
+
+Plex Server: [192.168.50.11:32400/web](192.168.50.11:32400/web)
+
+Transmission Server: [http://192.168.50.11:9091](http://192.168.50.11:9091)
+
 The plan is to have a Netflix-like local server that runs on a Raspberry pi.
 
 My hardware setup is:
@@ -345,14 +350,17 @@ sudo apt-get install exfat-utils
 Mounting an exFAT Drive Manually from Terminal
 
 ```bash
-sudo mount -t exfat /dev/sda2 /Media
+sudo mount -o ro,noload -t exfat /dev/sda2 /Media
 ```
 
 Automatically mounted at boot read only (find UUID using `sudo blkid`):
 
 ```bash
-UUID=CA1C-06BC /Media exfat defaults,auto,umask=000,users,r 0 0
+/dev/sda2 /Media exfat defaults,auto,umask=000,users,ro,noload 0 0
 ```
+
+/dev/disk/by-uuid/68271755-703c-48e6-a935-c1237de6b1a8 /mnt/HDD01 auto ro,nosuid,nodev,nofail,x-gvfs-show 0 0
+
 
 
 Formatting a Drive as exFAT:
