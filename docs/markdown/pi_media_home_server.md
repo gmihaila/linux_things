@@ -37,7 +37,7 @@ The software setup is:
 Always good to keep all up to date:
 
 ```bash
-sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get dist-upgrade -y
 sudo apt autoremove -y
 ```
 
