@@ -3,7 +3,7 @@ import re
 import warnings
 import shutil
 
-ALLOWED_FORMATS = ['mkv', 'srt']
+ALLOWED_FORMATS = ['mkv', 'srt', 'avi']
 
 REG_EXP = '[sS.]?(\d){1,2}[eE.xX]?(\d){1,2}'
 
@@ -50,6 +50,6 @@ def get_paths(use_file, show_name, use_season, format_, target_path_, use_path, 
     # print(new_name)
     current_file = os.path.join(use_path, use_file)
     target_file = os.path.join(target_path_, new_name)
-    shutil.move(current_file, target_file) if dry_run else None
+    shutil.move(current_file, target_file) if not dry_run else None
 
     print(f"File '{current_file}' was moved to '{target_file}'")

@@ -12,6 +12,7 @@ Run:
 
 python src/linux_things/media_server/rename_files.py --show_name 'My Show' --target_path 'where to move' --use_path 'where is the show' --dry_run
 
+
 """
 
 import os
@@ -45,7 +46,7 @@ def main():
     for folder in all_folders:
         folder_path = os.path.join(args.use_path, folder)
 
-        season = re.search('[sS]\d{1,2}', folder_path).group()
+        season = re.search('[sS]\d{1,2}', os.path.basename(folder_path)).group()
         season = re.sub('[sS]', '', season).lstrip('0')
         season = f'0{season}' if len(season) < 2 else season
 
@@ -56,7 +57,7 @@ def main():
         os.mkdir(seaon_target_path) if not os.path.isdir(seaon_target_path) else print(
             f"Folder '{addon_target_path}' already existst in '{target_path}'")
         files = os.listdir(folder_path)
-        # import pdb; pdb.set_trace()
+#        import pdb; pdb.set_trace()
         move_folder(files, args.show_name, season, folder_path, seaon_target_path, args.dry_run)
 
         if args.dry_run:
