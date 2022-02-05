@@ -11,7 +11,10 @@ I will include in this repo possible projects using raspberry py or how to compi
 
 It contains a broad line of things that have in common one thing: **they all run/require linux**.
 
-Main projects:
+**TO DO:**
+* Follow [this guide](https://greg.jeanmart.me/2020/04/13/build-your-very-own-self-hosting-platform-wi/) to setup my own self-hosting platform.
+
+## Main projects:
 
 ### Raspberry
 

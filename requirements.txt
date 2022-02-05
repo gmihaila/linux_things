@@ -1,4 +1,4 @@
-# Documentaiton packages
+# Documentation packages
 mkdocs
 mkdocs-material
 mkdocs-minify-plugin
