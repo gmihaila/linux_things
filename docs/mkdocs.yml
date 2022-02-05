@@ -19,7 +19,7 @@ copyright: Copyright &copy; 2015 - 2021 <a href="https://github.com/gmihaila"  t
 # Path of markdown files.
 docs_dir: markdown
 
-# Configuration
+# Configuration.
 theme:
   name: material
 
