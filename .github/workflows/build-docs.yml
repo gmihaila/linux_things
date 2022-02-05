@@ -4,6 +4,7 @@ on:
     branches:
       - master
       - main
+    # Specify which files changes trigger this build.
     paths:
       - 'docs/**'
 jobs:
