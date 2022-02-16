@@ -10,8 +10,13 @@ Need to rename and structure files in the following order:
 Run:
 
 
-python src/linux_things/media_server/rename_files.py --show_name 'My Show' --target_path 'where to move' --use_path 'where is the show' --dry_run
+python3 src/linux_things/media_server/rename_files.py --show_name 'My Show' --target_path 'where to move' --use_path 'where is the show' --dry_run
 
+python3 src/linux_things/media_server/rename_files.py \
+        --show_name 'Young Sheldon' \
+        --target_path '/Users/georgemihaila/Downloads' \
+        --use_path '/Users/georgemihaila/Downloads/Young Sheldon source' \
+        --dry_run
 
 """
 
@@ -41,11 +46,14 @@ def main():
     # Deal with each season.
     folder_content = os.listdir(args.use_path)
     # Keep only folders and not files.
-    all_folders = [folder for folder in folder_content if os.path.isdir(os.path.join(args.use_path, folder))]
-
+    all_folders = [folder for folder in folder_content if os.path.exists(os.path.join(args.use_path, folder))]
+    # import pdb;
+    # pdb.set_trace()
     for folder in all_folders:
+        if '.DS_Store' in folder:
+            continue
         folder_path = os.path.join(args.use_path, folder)
-
+        print(folder_path)
         season = re.search('[sS]\d{1,2}', os.path.basename(folder_path)).group()
         season = re.sub('[sS]', '', season).lstrip('0')
         season = f'0{season}' if len(season) < 2 else season
@@ -56,8 +64,8 @@ def main():
         seaon_target_path = os.path.join(target_path, addon_target_path)
         os.mkdir(seaon_target_path) if not os.path.isdir(seaon_target_path) else print(
             f"Folder '{addon_target_path}' already existst in '{target_path}'")
-        files = os.listdir(folder_path)
-#        import pdb; pdb.set_trace()
+        files = os.listdir(folder_path) if os.path.isdir(folder_path) else [folder]
+
         move_folder(files, args.show_name, season, folder_path, seaon_target_path, args.dry_run)
 
         if args.dry_run:

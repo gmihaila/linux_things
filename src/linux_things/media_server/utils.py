@@ -48,7 +48,7 @@ def get_paths(use_file, show_name, use_season, format_, target_path_, use_path, 
     episode = f'0{episode}' if len(episode) == 1 else episode
     new_name = f"{show_name} - s{use_season}e{episode}.{format_}"
     # print(new_name)
-    current_file = os.path.join(use_path, use_file)
+    current_file = os.path.join(use_path, use_file) if os.path.isdir(use_path) else use_path
     target_file = os.path.join(target_path_, new_name)
     shutil.move(current_file, target_file) if not dry_run else None
 
